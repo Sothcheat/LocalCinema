@@ -13,6 +13,9 @@
 		<EnableMsixTooling>true</EnableMsixTooling>
 		<Nullable>enable</Nullable>
 		<LangVersion>latest</LangVersion>
+		<DisableXamlGeneratedMain>true</DisableXamlGeneratedMain>
+		<DefineConstants>$(DefineConstants);DISABLE_XAML_GENERATED_MAIN</DefineConstants>
+		<WindowsPackageType>None</WindowsPackageType>
 	</PropertyGroup>
 
 	<ItemGroup>

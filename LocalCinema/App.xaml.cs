@@ -7,6 +7,7 @@ using LocalCinema.Helpers;
 using Microsoft.EntityFrameworkCore;
 using System.IO;
 using System.Diagnostics;
+using System.Threading.Tasks;
 
 namespace LocalCinema
 {
@@ -25,8 +26,11 @@ namespace LocalCinema
         {
             try
             {
-                // Initialize LibVLC
-                LibVLCSharp.Shared.Core.Initialize();
+                // Initialize LibVLC on background thread
+                //await Task.Run(() =>
+                //{
+                //    LibVLCSharp.Shared.Core.Initialize();
+                //});
 
                 // Setup Dependency Injection
                 var services = new ServiceCollection();
@@ -71,7 +75,7 @@ namespace LocalCinema
             var tmdbApiKey = settings.TmdbApiKey;
             if (string.IsNullOrEmpty(tmdbApiKey))
             {
-                tmdbApiKey = "02c342c41ee80e0a72cc0a57e272145c"; // REPLACE WITH YOUR KEY
+                tmdbApiKey = "02c342c41ee80e0a72cc0a57e272145c";
             }
             services.AddSingleton<ITmdbService>(sp => new TmdbService(tmdbApiKey));
 
