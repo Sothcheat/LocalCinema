@@ -44,3 +44,4 @@ jobs:
           /p:UapAppxPackageBuildMode=SideloadOnly `
           /p:AppxBundle=Never `
           /p:RuntimeIdentifier=win-${{ matrix.platform }}
+          /p:PublishReadyToRun=false
