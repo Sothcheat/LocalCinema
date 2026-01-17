@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "LocalCinema (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "LocalCinema (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}
