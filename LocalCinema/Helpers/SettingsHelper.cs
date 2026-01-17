@@ -38,6 +38,6 @@ namespace LocalCinema.Helpers
         public string[] MovieFolders { get; set; } = Array.Empty<string>();
         public bool EnableNetworkStreaming { get; set; } = false;
         public int ServerPort { get; set; } = 8080;
-        public string TmdbApiKey { get; set; } = string.Empty; // ADD YOUR API KEY HERE
+        public string TmdbApiKey { get; set; } = "02c342c41ee80e0a72cc0a57e272145c"; // ADD YOUR API KEY HERE
     }
 }

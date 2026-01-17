@@ -71,7 +71,7 @@ namespace LocalCinema
             var tmdbApiKey = settings.TmdbApiKey;
             if (string.IsNullOrEmpty(tmdbApiKey))
             {
-                tmdbApiKey = "YOUR_TMDB_API_KEY_HERE"; // REPLACE WITH YOUR KEY
+                tmdbApiKey = "02c342c41ee80e0a72cc0a57e272145c"; // REPLACE WITH YOUR KEY
             }
             services.AddSingleton<ITmdbService>(sp => new TmdbService(tmdbApiKey));
 
