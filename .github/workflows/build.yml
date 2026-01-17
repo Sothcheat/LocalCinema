@@ -38,7 +38,7 @@ jobs:
     # Build the project
     - name: Build WinUI 3 App
       run: |
-        msbuild LocalCinema.sln `
+        msbuild LocalCinema.slnx `
           /p:Configuration=${{ matrix.configuration }} `
           /p:Platform=${{ matrix.platform }} `
           /p:UapAppxPackageBuildMode=SideloadOnly `
