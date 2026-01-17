@@ -33,7 +33,7 @@ jobs:
 
     # Restore NuGet packages
     - name: Restore NuGet packages
-      run: dotnet restore LocalCinema.sln
+      run: dotnet restore LocalCinema.slnx
 
     # Build the project
     - name: Build WinUI 3 App
