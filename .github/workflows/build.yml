@@ -1,0 +1,46 @@
+name: WinUI 3 Build
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    strategy:
+      matrix:
+        configuration: [Debug, Release]
+        platform: [x64, arm64]
+
+    runs-on: windows-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+
+    # Install the .NET 10 SDK
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: 10.0.x
+
+    # Add MSBuild to the path for WinUI 3 packaging
+    - name: Setup MSBuild
+      uses: microsoft/setup-msbuild@v2
+
+    # Restore NuGet packages
+    - name: Restore NuGet packages
+      run: dotnet restore LocalCinema.sln
+
+    # Build the project
+    - name: Build WinUI 3 App
+      run: |
+        msbuild LocalCinema.sln `
+          /p:Configuration=${{ matrix.configuration }} `
+          /p:Platform=${{ matrix.platform }} `
+          /p:UapAppxPackageBuildMode=SideloadOnly `
+          /p:AppxBundle=Never `
+          /p:RuntimeIdentifier=win-${{ matrix.platform }}
